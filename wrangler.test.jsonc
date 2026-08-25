@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "cloud-memory-test",
+  "main": "src/server.ts",
+  "compatibility_date": "2026-08-23",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "vars": {
+    "APP_ENV": "local",
+    "PUBLIC_ORIGIN": "https://cloud-memory.test",
+    "ALLOWED_GITHUB_USER_ID": "123456789",
+    "ALLOWED_GITHUB_LOGIN": "community-owner",
+    "GITHUB_EXPORT_REPOSITORY": "community-owner/ai-cloud-memory",
+    "NATIVE_AUTOMATION_ENABLED": "false",
+    "COOKIE_ENCRYPTION_KEY": "0000000000000000000000000000000000000000000000000000000000000000",
+    "EXPORT_ENCRYPTION_KEY": "1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "cloud-memory-test",
+      "database_id": "00000000-0000-0000-0000-000000000001",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+      "id": "00000000000000000000000000000001"
+    }
+  ]
+}

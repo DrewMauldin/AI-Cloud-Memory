@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0d1216" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Set up AI Cloud Memory</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%230d1216%22/><circle cx=%2232%22 cy=%2232%22 r=%2210%22 fill=%22%23e1b999%22/></svg>" />
+    <link rel="stylesheet" href="/setup.css" />
+    <script type="module" src="/setup.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#setup">Skip to setup</a>
+    <header class="topbar">
+      <a class="brand" href="/"><span>CM</span><strong>AI Cloud Memory</strong></a>
+      <p>Community Edition setup</p>
+    </header>
+    <main id="setup">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">YOUR CLOUDFLARE · YOUR GITHUB · YOUR DATA</p>
+          <h1>From empty account<br /><em>to shared memory.</em></h1>
+          <p class="lede">This guide configures one private, owner-only Cloud Memory instance. It never asks for, transmits or stores your secrets.</p>
+        </div>
+        <aside class="instance-card">
+          <p class="eyebrow">THIS INSTANCE</p>
+          <dl>
+            <div><dt>Dashboard</dt><dd data-origin>Detecting…</dd></div>
+            <div><dt>OAuth callback</dt><dd data-callback>Detecting…</dd></div>
+            <div><dt>MCP endpoint</dt><dd data-mcp>Detecting…</dd></div>
+          </dl>
+          <button type="button" data-copy="mcp">Copy MCP endpoint</button>
+        </aside>
+      </section>
+
+      <section class="progress" aria-labelledby="progress-title">
+        <div><p class="eyebrow">LOCAL CHECKLIST</p><h2 id="progress-title">Your setup progress</h2></div>
+        <strong><span data-completed>0</span>/5 complete</strong>
+        <div class="progress-track"><span data-progress></span></div>
+        <p>Progress is kept only in this browser.</p>
+      </section>
+
+      <ol class="steps">
+        <li class="step" data-step="deploy">
+          <header><span>01</span><div><p class="eyebrow">CLOUDFLARE</p><h2>Deploy your own copy</h2></div><label><input type="checkbox" /> Done</label></header>
+          <p>Use the Deploy to Cloudflare button in the repository. Cloudflare creates the Worker and bound resources in your account; GitHub holds your copy of the code.</p>
+          <a href="https://github.com/DrewMauldin/AI-Cloud-Memory#deploy" rel="noreferrer">Open deployment guide ↗</a>
+        </li>
+        <li class="step" data-step="oauth">
+          <header><span>02</span><div><p class="eyebrow">GITHUB OAUTH</p><h2>Register the final callback</h2></div><label><input type="checkbox" /> Done</label></header>
+          <p>Create a GitHub OAuth App. Use this instance as the homepage and the exact callback below. If you add a custom domain later, update both GitHub and <code>PUBLIC_ORIGIN</code>.</p>
+          <div class="copy-row"><code data-callback>Detecting…</code><button type="button" data-copy="callback">Copy</button></div>
+        </li>
+        <li class="step" data-step="configuration">
+          <header><span>03</span><div><p class="eyebrow">OWNER LOCK</p><h2>Set variables and secrets</h2></div><label><input type="checkbox" /> Done</label></header>
+          <p>Set your numeric GitHub user ID, login and final origin as Worker variables. Add the OAuth client ID, OAuth client secret and a random cookie encryption key with Wrangler secrets. Do not paste any secret into this page or Git.</p>
+          <pre><code>ALLOWED_GITHUB_USER_ID
+ALLOWED_GITHUB_LOGIN
+PUBLIC_ORIGIN
+
+GITHUB_CLIENT_ID          # secret
+GITHUB_CLIENT_SECRET      # secret
+COOKIE_ENCRYPTION_KEY     # secret</code></pre>
+        </li>
+        <li class="step" data-step="canary">
+          <header><span>04</span><div><p class="eyebrow">FIRST CANARY</p><h2>Prove the private workspace</h2></div><label><input type="checkbox" /> Done</label></header>
+          <p>Redeploy, open the dashboard, sign in with the allowlisted GitHub account, then confirm the health screen shows Worker and D1 as available. A public deployment does not make your workspace public.</p>
+          <a href="/">Open this dashboard ↗</a>
+        </li>
+        <li class="step" data-step="clients">
+          <header><span>05</span><div><p class="eyebrow">MCP CLIENTS</p><h2>Connect, authorise, verify</h2></div><label><input type="checkbox" /> Done</label></header>
+          <p>Add the endpoint to each supported client, complete OAuth, and verify <code>cloudmemory_health</code>, <code>cloudmemory_board</code>, a harmless search and one explicitly approved write.</p>
+          <div class="copy-row"><code data-mcp>Detecting…</code><button type="button" data-copy="mcp">Copy</button></div>
+        </li>
+      </ol>
+
+      <section class="mode-card">
+        <div><p class="eyebrow">SAFE DEFAULT</p><h2>Useful before AI is enabled.</h2></div>
+        <p><code>SEMANTIC_SEARCH_ENABLED=false</code> keeps search lexical and temporal and makes no Workers AI or Vectorize calls. Enable it later, then use Repair index to backfill pending memories.</p>
+      </section>
+    </main>
+    <footer><p>Self-hosted in your Cloudflare account. No n8n, private server or third-party Cloud Memory account required.</p><a href="https://github.com/DrewMauldin/AI-Cloud-Memory">Documentation and source ↗</a></footer>
+  </body>
+</html>

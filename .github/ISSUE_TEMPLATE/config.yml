@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Setup and usage discussion
+    url: https://github.com/DrewMauldin/AI-Cloud-Memory/discussions
+    about: Ask a question without posting private data.

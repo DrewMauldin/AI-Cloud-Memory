@@ -1,0 +1,60 @@
+{
+  "name": "ai-cloud-memory",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@11.6.2",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite dev",
+    "dev:qa": "vite dev --config vite.qa.config.ts --host 127.0.0.1",
+    "build": "vite build",
+    "deploy": "npm run build && wrangler deploy && wrangler d1 migrations apply DB --remote && wrangler deploy",
+    "types": "wrangler types worker-configuration.d.ts --include-runtime false",
+    "verify:deployment": "node scripts/verify-deployment-config.mjs",
+    "verify:repository": "node scripts/verify-repository.mjs",
+    "benchmark:relevance": "node --experimental-strip-types scripts/benchmark-relevance.mjs",
+    "benchmark:relevance:live": "node scripts/benchmark-relevance-live.mjs",
+    "lint": "eslint . --max-warnings=0",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run test:unit && npm run test:worker",
+    "test:unit": "vitest run",
+    "test:worker": "vitest run --config vitest.worker.config.ts",
+    "test:watch": "vitest",
+    "check": "npm run verify:repository && npm run verify:deployment && npm run lint && npm run typecheck && npm run test && npm run build",
+    "audit": "npm audit --audit-level=high",
+    "audit:signatures": "npm audit signatures"
+  },
+  "dependencies": {
+    "@cloudflare/workers-oauth-provider": "0.10.3",
+    "@modelcontextprotocol/server": "2.0.0",
+    "agents": "0.21.0",
+    "hono": "4.13.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.53.1",
+    "@cloudflare/vitest-plugin": "1.0.0",
+    "@cloudflare/workers-types": "5.20260823.1",
+    "@eslint/js": "^10.0.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.6",
+    "@types/node": "26.2.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "@vitejs/plugin-react": "6.1.0",
+    "eslint": "^10.9.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.11.0",
+    "jsdom": "30.0.1",
+    "typescript": "6.0.3",
+    "typescript-eslint": "^8.67.0",
+    "vite": "8.2.2",
+    "vitest": "4.1.11",
+    "wrangler": "4.125.0"
+  }
+}

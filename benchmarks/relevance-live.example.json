@@ -1,0 +1,25 @@
+{
+  "version": "1",
+  "queries": [
+    { "id": "q01", "query": "example private query 01", "relevant": ["replace-with-memory-id"], "critical": true },
+    { "id": "q02", "query": "example private query 02", "relevant": ["replace-with-memory-id"] },
+    { "id": "q03", "query": "example private query 03", "relevant": ["replace-with-memory-id"] },
+    { "id": "q04", "query": "example private query 04", "relevant": ["replace-with-memory-id"] },
+    { "id": "q05", "query": "example private query 05", "relevant": ["replace-with-memory-id"] },
+    { "id": "q06", "query": "example private query 06", "relevant": ["replace-with-memory-id"] },
+    { "id": "q07", "query": "example private query 07", "relevant": ["replace-with-memory-id"] },
+    { "id": "q08", "query": "example private query 08", "relevant": ["replace-with-memory-id"] },
+    { "id": "q09", "query": "example private query 09", "relevant": ["replace-with-memory-id"] },
+    { "id": "q10", "query": "example private query 10", "relevant": ["replace-with-memory-id"] },
+    { "id": "q11", "query": "example private query 11", "relevant": ["replace-with-memory-id"] },
+    { "id": "q12", "query": "example private query 12", "relevant": ["replace-with-memory-id"] },
+    { "id": "q13", "query": "example private query 13", "relevant": ["replace-with-memory-id"] },
+    { "id": "q14", "query": "example private query 14", "relevant": ["replace-with-memory-id"] },
+    { "id": "q15", "query": "example private query 15", "relevant": ["replace-with-memory-id"] },
+    { "id": "q16", "query": "example private query 16", "relevant": ["replace-with-memory-id"] },
+    { "id": "q17", "query": "example private query 17", "relevant": ["replace-with-memory-id"] },
+    { "id": "q18", "query": "example private query 18", "relevant": ["replace-with-memory-id"] },
+    { "id": "q19", "query": "example private query 19", "relevant": ["replace-with-memory-id"] },
+    { "id": "q20", "query": "example private query 20", "relevant": ["replace-with-memory-id"] }
+  ]
+}
