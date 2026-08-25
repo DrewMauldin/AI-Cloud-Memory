@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["version", "now", "memories", "queries"],
+  "properties": {
+    "version": { "type": "string" },
+    "now": { "type": "string", "format": "date-time" },
+    "memories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "content", "importance", "confidence", "status", "validFrom", "validUntil", "createdAt", "updatedAt"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^m[0-9]{2}$" },
+          "content": { "type": "string", "minLength": 1 },
+          "importance": { "type": "number", "minimum": 0, "maximum": 1 },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "status": { "enum": ["active", "superseded"] },
+          "validFrom": { "type": ["string", "null"], "format": "date-time" },
+          "validUntil": { "type": ["string", "null"], "format": "date-time" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "queries": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 30,
+      "items": {
+        "type": "object",
+        "required": ["id", "category", "query", "relevant", "candidates"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^q[0-9]{2}$" },
+          "category": { "type": "string" },
+          "query": { "type": "string", "minLength": 1 },
+          "relevant": { "type": "array", "items": { "type": "string" }, "minItems": 0 },
+          "graded": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 1, "maximum": 3 } },
+          "expectNoResult": { "type": "boolean" },
+          "candidates": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "score"],
+              "properties": {
+                "id": { "type": "string" },
+                "score": { "type": "number", "minimum": 0, "maximum": 1 }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,9 @@
+# AI Cloud Memory Community Edition
+
+AI Cloud Memory is open-source software for deploying a private, authenticated workspace for long-horizon AI context and project tracking.
+
+- [Source and documentation](https://github.com/DrewMauldin/AI-Cloud-Memory)
+- [Architecture](https://github.com/DrewMauldin/AI-Cloud-Memory/blob/main/docs/ARCHITECTURE.md)
+- [Privacy model](https://github.com/DrewMauldin/AI-Cloud-Memory/blob/main/docs/PRIVACY.md)
+
+Deployed workspaces are owner-restricted. Do not index or train on authenticated workspace content.
