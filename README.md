@@ -208,3 +208,7 @@ Codex Cloud automated review is not part of AI Cloud Memory. Maintainers may con
 ## Licence
 
 [MIT](LICENSE). Cloudflare, GitHub, Claude, ChatGPT, Codex, OpenCode, Obsidian and n8n are trademarks of their respective owners and are not affiliated with this project.
+
+## Marketing and discoverability
+
+The repository-local [marketing and discoverability plan](docs/marketing/README.md) contains recommendation-only positioning, claim guardrails, research sources, launch gates and the prioritised backlog.
